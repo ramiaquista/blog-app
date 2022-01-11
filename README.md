@@ -30,10 +30,16 @@ No extra dependencies needed to use the code!
 
 ### Test
 
-- Ruby Testing
+- Ruby Linters 
 
 ```
 rubocop
+```
+
+- Css Linters
+
+```
+npx stylelint "**/*.{css,scss}"
 ```
 
 ### Usage
