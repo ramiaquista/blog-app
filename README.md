@@ -1,24 +1,66 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Blog App 
 
-Things you may want to cover:
+> In this project I have build a Blog App usign Ruby on Rails.
+## Built With
 
-* Ruby version
+- Ruby on Rails
+- Git - Github - GitFlow
 
-* System dependencies
+## Getting Started
 
-* Configuration
+To get a local copy up and running follow these simple example steps.
 
-* Database creation
+### Prerequisites
 
-* Database initialization
+- Visual Studio Code or Sublime Text
+- Git
+- LiveServer Extension
 
-* How to run the test suite
+### Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+Go to the top of the page, press te green button that says "Code", and copy the link. Then you have to go to your console and type " git clone 'repository-url.com' ".
 
-* Deployment instructions
+- Next step: Go to usage section!
 
-* ...
+### Install
+
+No extra dependencies needed to use the code!
+
+### Test
+
+- Ruby Testing
+
+```
+rubocop
+```
+
+### Usage
+
+- Once you clone the repository:
+
+```
+cd repository-clone
+rails s
+```
+
+You are ready to go!
+
+## Author
+
+👤 **Ramiro Aquistapace**
+
+- GitHub: [@ramiaquista](https://github.com/ramiaquista)
+- Twitter: [@ramiaq1](https://twitter.com/ramiaq1)
+- LinkedIn: [RamiroAquistapace](https://www.linkedin.com/in/ramiro-aquistapace-32b61b204/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if you like this project! 😄
+
+## Acknowledgments
