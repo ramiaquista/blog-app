@@ -1,1 +1,25 @@
-<h1>This shows all the posts from the user</h1>
+<div>
+   <h2>User name: </h2> $<%= @user.name%><br />
+   <p>Number of posts:</p> <%= @user.posts_counter %><br />
+</div>
+<% if @posts.blank? %>
+<p>This user has no posts</p>
+<% else %>
+<ul>
+   <% @posts.each do |post| %>
+    <li>
+      <div id='post-data'>
+        <%= post.title%><br />
+        <p><%= post.text%></p><br/>
+        <p><%= post.comments_counter%> - <%= post.likes_counter %></p>
+      </div>
+      <div id='comments-data'>
+        <%= post.comments each do |comment|%>
+         <p><%= comment.author_id%> : <%= comment.text %></p>
+        <% end %>
+      </div>
+    </li>
+   <% end %>
+</ul>
+<button>Pagination</button>
+<% end %>

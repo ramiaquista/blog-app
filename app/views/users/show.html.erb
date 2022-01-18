@@ -1,8 +1,6 @@
-<h1>This shows the user data</h1>
-
 <div>
    <h2>User name: </h2> $<%= @user.name%><br />
-   <p>Post counter:</p> <%= @user.posts_counter %><br />
+   <p>Number of posts:</p> <%= @user.posts_counter %><br />
 </div>
 <div>
    <h4>Bio</h4>
@@ -13,7 +11,12 @@
 <% else %>
 <ul>
    <% @posts.each do |post| %>
-    <li><%= post.title%><br /><p><%= pos.text%></p></li>
+      <div id='post-data'>
+        <%= post.title%><br />
+        <p><%= pos.text%></p><br/>
+        <p><%= pos.comments_counter%> - <%= post.likes_counter %></p>
+      </div>
    <% end %>
-   <button>See all posts</button>
 </ul>
+<button>See all posts</button>
+<% end %>
