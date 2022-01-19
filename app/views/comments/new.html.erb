@@ -1,0 +1,8 @@
+<%= form_with model: @comment do |form| %>
+  <%= @current_user%><br>
+  <%= form.label :title %><br>
+  <%= form.text_field :title, placeholder: 'Title of the Comment'%><br>
+  <%= form.label :text%><br>
+  <%= form.password_field :text, placeholder: 'Text of the Comment' %><br>
+  <%= form.submit "Create a Comment" %>
+<% end %>

@@ -1,0 +1,8 @@
+<%= form_with model: @post do |form| %>
+  <%= @current_user%><br>
+  <%= form.label :title %><br>
+  <%= form.text_field :title, placeholder: 'Title of the Post'%><br>
+  <%= form.label :text%><br>
+  <%= form.password_field :text, placeholder: 'Text of the Post' %><br>
+  <%= form.submit "Create post" %>
+<% end %>
