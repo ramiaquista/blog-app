@@ -1,8 +1,16 @@
-<%= form_with model: @post do |form| %>
-  <%= @current_user%><br>
-  <%= form.label :title %><br>
-  <%= form.text_field :title, placeholder: 'Title of the Post'%><br>
-  <%= form.label :text%><br>
-  <%= form.password_field :text, placeholder: 'Text of the Post' %><br>
-  <%= form.submit "Create post" %>
+<h1>New Post</h1>
+<%= form_for :post, url: user_posts_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>
