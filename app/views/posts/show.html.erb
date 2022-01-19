@@ -1,3 +1,6 @@
+<% if @posts.blank? %>
+<p>This post does not exist.</p>
+<% else %>
 <div id='post-container'>
     <div id='post-info-container'>
         <h1><%= @post.title %> by <%= @post.author_id %> </h1><p><%= post.comments_counter%> - <%= post.likes_counter %></p><br />
@@ -9,3 +12,4 @@
         <% end %>
     </div>
 </div>
+<% end %>

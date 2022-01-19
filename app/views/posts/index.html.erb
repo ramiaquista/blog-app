@@ -1,10 +1,10 @@
+<% if @posts.blank? %>
+<p>There are not any posts currently in the system for this user.</p>
+<% else %>
 <div>
    <h2>User name: </h2> $<%= @user.name%><br />
    <p>Number of posts:</p> <%= @user.posts_counter %><br />
 </div>
-<% if @posts.blank? %>
-<p>This user has no posts</p>
-<% else %>
 <ul>
    <% @posts.each do |post| %>
     <li>
