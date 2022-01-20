@@ -9,8 +9,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(params[:comment].permit(:text))
-    @comment.save
-    flash[:notice] = 'Post created successfully'
+    if @comment.save
+      flash[:notice] = 'Comment created successfully'
+    else
+      flash[:error] = "Couldn\'t create the comment"
+    end
     redirect_to user_posts_path
   end
 end

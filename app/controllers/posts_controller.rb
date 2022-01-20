@@ -13,14 +13,22 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post].permit(:title, :text))
-    @post.save
-    flash[:notice] = 'Post created successfully'
+    if @post.save
+      flash[:notice] = 'Post created successfully'
+    else
+      flash[:error] = "Couldn't create post"
+    end
     redirect_to user_posts_path
   end
 
   def like
     @post = Post.all.find(params[:id])
-    Like.create(author: current_user.id, post_id: @post.id)
+    @like = Like.new(author: current_user.id, post_id: @post.id)
+    if @like.save
+      flash[:notice] = 'Post liked successfully'
+    else
+      flash[:error] = "Couldn't like the post"
+    end
     redirect_to post_path(@post)
   end
 end
