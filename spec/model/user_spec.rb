@@ -20,15 +20,15 @@ RSpec.describe User, type: :model do
       expect(user).to_not be_valid
     end
   end
-  describe "Associations" do
+  describe 'Associations' do
     it { should respond_to(:posts) }
     it { should respond_to(:comments) }
     it { should respond_to(:likes) }
   end
-  describe "Methods" do
+  describe 'Methods' do
     it 'should return an empty array' do
-        user = User.new(name: "Rami", posts_counter: 0)
-        expect(user.most_recent_posts).to eq([])
+      user = User.new(name: 'Rami', posts_counter: 0)
+      expect(user.most_recent_posts).to eq([])
     end
   end
 end
