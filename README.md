@@ -48,6 +48,9 @@ npx stylelint "**/*.{css,scss}"
 
 ```
 cd repository-clone
+bundle i
+rails db:create
+rails db:migrate
 rails s
 ```
 
