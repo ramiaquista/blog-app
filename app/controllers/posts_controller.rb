@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post].permit(:title, :text))
     @post.save
-    flash[:notice] = "Post created successfully"
+    flash[:notice] = 'Post created successfully'
     redirect_to user_posts_path
   end
 

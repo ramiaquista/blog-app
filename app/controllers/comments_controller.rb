@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment].permit(:text))
     @comment.save
-    flash[:notice] = "Post created successfully"
+    flash[:notice] = 'Post created successfully'
     redirect_to user_posts_path
   end
 end
