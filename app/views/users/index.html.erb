@@ -1,10 +1,20 @@
 <% if @users.blank? %>
 <p>There are not any users currently in the system.</p>
 <% else %>
-<h1>This is a list of all the users<h1>
-<ul id = "users">
-   <% @users.each do |user| %>
-   <li> Name: <%= user.name %> - Number of Posts: <% user.posts_counter %></li>
-   <% end %>
-</ul>
+    <ul class="ul-user">
+    <% if flash[:post_added] %>
+      <p>Post Added Successfully!</p>
+    <% end %>
+    <% @users.each do |u| %>
+    <li>
+      <div class="user-img">
+        <img src="<%= u.photo %>" alt="user_photo"/>
+      </div>
+      <div class="data">
+        <p class="name"><%= u.name %></p>
+        <p class="number-posts">number of post: <%= u.posts_counter %></p>
+      </div>
+    </li>
+    <%end%>
+    </ul>   
 <% end %>
