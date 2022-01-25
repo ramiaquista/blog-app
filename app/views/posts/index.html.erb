@@ -1,25 +1,46 @@
 <% if @posts.blank? %>
 <p>There are not any posts currently in the system for this user.</p>
 <% else %>
-<div>
-   <h2>User name: </h2> $<%= @user.name%><br />
-   <p>Number of posts:</p> <%= @user.posts_counter %><br />
-</div>
-<ul>
-   <% @posts.each do |post| %>
-    <li>
-      <div id='post-data'>
-        <%= post.title%><br />
-        <p><%= post.text%></p><br/>
-        <p><%= post.comments_counter%> - <%= post.likes_counter %></p>
-      </div>
-      <div id='comments-data'>
-        <%= post.comments each do |comment|%>
-         <p><%= comment.author_id%> : <%= comment.text %></p>
+    <ul class="ul-user">
+      <li>
+        <div class="user-img">
+          <img src="<%= @user.photo %>" alt="user_photo"/>
+        </div>
+        <div class="data">
+          <p class="name"><%= @user.name %></p>
+          <p class="number-posts">number of post: <%= @user.posts_counter %></p>
+        </div>
+      </li>
+    </ul>
+    <section>
+      <ul class="ul-posts">
+        <% @posts.each do |p| %>
+          <li class="post-section-index">
+            <div class="post-section">
+              <p class="post-title"><%= p.title %></p>
+              <p class="post-text"><%= p.text %></p>
+              <div class="interactions">
+                <p>comments: <%= p.comments_counter %>,</p>
+                <p>likes: <%= p.likes_counter %></p>
+              </div>
+            </div>
+            <% @comments = p.most_recent_comments %>
+            <% if @comments.blank? %>
+              <div class="comments-section">
+                <% @comments.each do |c|%>
+                  <div class="comment-data">
+                    <p><%= c.user_name(c.user_id)%>:</p>
+                    <p><%= c.text %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </li>
         <% end %>
-      </div>
-    </li>
-   <% end %>
-</ul>
-<button>Pagination</button>
+        <li>
+          <a href=<%="#{new_user_post_path}"%>>Add new Post</a>
+        </li>
+      </ul>
+    </section>
+    <button class="btn-user-details">pagination</button>
 <% end %>

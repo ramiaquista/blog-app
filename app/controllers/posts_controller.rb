@@ -1,40 +1,40 @@
 class PostsController < ApplicationController
-  def index; end
+  def index
+    id = params[:user_id]
+    @user = User.find(id)
+    @posts = Post.includes(:author).where("user_id = #{id}").references(:user).limit(2).order(id: :desc)
+  end
 
-  def show; end
+  def show
+    id = params[:user_id]
+    post_id = params[:id]
+    @user = User.find(id)
+    @post = Post.find(post_id)
+    @comments = Comment.includes(:post).where("post_id = #{post_id}").references(:post)
+  end
 
   def new
-    post = Post.new
-    @current_user = current_user
-    respond_to do |format|
-      format.html { render :new, locals: { post: post } }
-    end
+    @new_post = Post.new
+    @current_user = User.find(params[:user_id])
   end
 
   def create
-    @post = Post.new(params[:post].permit(:title, :text))
-    if @post.save
-      flash[:notice] = 'Post created successfully'
-    else
-      flash[:error] = "Couldn't create post"
-    end
+    @current_user = User.find(params[:user_id])
+    returned_values = post_params
+    @new_post = @current_user.post.create(returned_values)
     redirect_to user_posts_path
-  end
-
-  def like
-    @post = Post.all.find(params[:id])
-    @like = Like.new(author: current_user.id, post_id: @post.id)
-    if @like.save
-      flash[:notice] = 'Post liked successfully'
-    else
-      flash[:error] = "Couldn't like the post"
-    end
-    redirect_to post_path(@post)
   end
 
   def destroy
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_posts_path
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text, :comments_counter, :likes_counter, :user_id, :author_id)
   end
 end

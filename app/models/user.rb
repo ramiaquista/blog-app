@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   ROLES = %i[admin default].freeze
 
   def recent_posts
-    Post.includes(:user).where("user_id = #{id}").references(:user).limit(3)
+    Post.includes(:author).where("user_id = #{id}").references(:user).limit(3)
   end
 
   def is?(requested_role)

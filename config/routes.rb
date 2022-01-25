@@ -5,5 +5,6 @@ Rails.application.routes.draw do
       resources :comments, :likes
     end
   end
+  delete '/users/:user_id/posts/:id', to: 'posts#destroy', as: "delete_post"
   root :to => 'users#index'
 end

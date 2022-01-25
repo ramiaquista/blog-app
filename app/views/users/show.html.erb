@@ -1,26 +1,30 @@
-<% if @users.blank? %>
-<p>There are not any users currently in the system.</p>
-<% else %>
-<div>
-   <h2>User name: </h2> $<%= @user.name%><br />
-   <p>Number of posts:</p> <%= @user.posts_counter %><br />
-</div>
-<div>
-   <h4>Bio</h4>
-   <p><%= user.bio %></p>
-</div>
-<% if @posts.blank? %>
-<p>This user has no posts</p>
-<% else %>
-<ul>
-   <% @posts.each do |post| %>
-      <div id='post-data'>
-        <%= post.title%><br />
-        <p><%= pos.text%></p><br/>
-        <p><%= pos.comments_counter%> - <%= post.likes_counter %></p>
+    <ul class="ul-user">
+      <li>
+        <div class="user-img">
+          <img src="<%= @user.photo %>" alt="user_photo"/>
+        </div>
+        <div class="data">
+          <p class="name"><%= @user.name %></p>
+          <p class="number-posts">number of post: <%= @user.posts_counter %></p>
+        </div>
+      </li>
+    </ul>
+    <section>
+      <div class="bio">
+        <p class="bio-title">Bio</p>
+        <%= @user.bio %>
       </div>
-   <% end %>
-</ul>
-<button>See all posts</button>
-<% end %>
-<% end %>
+      <ul class="ul-posts">
+        <% @posts.each do |p| %>
+          <li class="post-user-section">
+            <p class="post-title"><%= p.title %></p>
+            <p class="post-text"><%= p.text %></p>
+            <div class="interactions">
+              <p>comments: <%= p.comments_counter %>,</p>
+              <p>likes: <%= p.likes_counter %></p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+    <button class="btn-user-details">see all posts</button>   
