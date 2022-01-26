@@ -25,5 +25,7 @@
       <li class="comment-container">
       </li>
     </ul>
-<%= link_to "Delete", delete_post_path(params[:user_id], @post.id), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } if can? :destroy, Post %>
+    <% if can? :destroy, @post %>
+        <%= link_to "Delete", delete_post_path(current_user.id, @post.id), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
+    <% end %>
 <% end %>
