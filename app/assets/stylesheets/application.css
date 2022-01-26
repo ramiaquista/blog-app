@@ -1,242 +1,215 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-body {
-  margin: 0;
+body{
+  margin:0;
   padding: 0;
 }
 
-.ul-post > li {
-  border: 1px solid;
+.ul-post > li{
+  border:1px solid;
 }
 
-ul.ul-user {
+ul.ul-user{
   list-style-type: none;
   padding: 0 10px;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
 }
-
-ul.ul-user > li {
+ul.ul-user > li{
   height: 90px;
   display: flex;
-  padding: 0;
-  justify-content: normal;
-  gap: 10px;
+    padding: 0px;
+    justify-content: normal;
+    gap: 10px; 
 }
-
-.user-img {
+.user-img{
   width: 30%;
   height: 70px;
   border: 1px solid;
   align-self: center;
 }
-
-.name {
-  margin: 9px 14px 5px 14px;
+.name{
+  margin:9px 14px 5px 14px;
   text-transform: capitalize;
   font-size: 20px;
   font-weight: bold;
 }
-
-.number-posts {
-  margin-left: 80%;
-  margin-right: auto;
+.number-posts{
+  margin: 0 0 0 65px;
   text-transform: capitalize;
   font-size: 14px;
 }
-
-.data {
-  width: 75%;
+.data{
+  width:75%;
   height: 65px;
-  align-self: center;
-  border: 1px solid;
+    align-self: center;
+  border:1px solid;
 }
 
-/* BIO CSS */
-.bio {
+/*BIO CSS*/
+.bio{
   margin: 0 10px;
   border: 1px solid;
   padding: 10px;
 }
-
-.bio-title {
+.bio-title{
   margin: 0;
   font-weight: bold;
   margin-bottom: 10px;
 }
-
-.ul-posts {
+.ul-posts{
   list-style-type: none;
-  margin: 20px 10px 10px 10px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    margin: 20px 10px 10px 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
 }
-
 .ul-posts > li.post-user-section {
-  border: 1px solid;
+  border:1px solid;
   padding: 10px;
   display: flex;
   flex-direction: column;
 }
-
-.post-title {
-  margin: 0;
+.post-title{
+  margin: 0px;
   height: 35px;
-  font-weight: bold;
-  text-transform: capitalize;
+    font-weight: bold;
+    text-transform: capitalize;
 }
-
-.post-text {
+.post-text{
   margin: 0;
   height: 39px;
   overflow: hidden;
 }
-
-.interactions {
+.interactions{
   display: flex;
   justify-content: flex-end;
   height: 20px;
-  gap: 5px;
+  gap:5px;
 }
-
-.interactions > p {
-  margin: 0;
+.interactions > p{
+  margin:0;
   font-size: 13px;
   text-transform: capitalize;
 }
-
-button.btn-user-details {
+button.btn-user-details{
   display: block;
-  width: 100px;
-  margin: 20px auto;
-  text-transform: capitalize;
-  padding: 5px;
+    width: 100px;
+    margin: 20px auto;
+    text-transform: capitalize;
+    padding: 5px;
 }
-
-/* POST INDEX CSS */
-.post-section-index {
+/*POST INDEX CSS*/
+.post-section-index{  
   padding: 10px;
   display: flex;
   flex-direction: column;
 }
-
-.post-section,
-.comments-section {
-  border: 1px solid;
-  padding: 5px;
+.post-section, .comments-section{
+  border:1px solid;
+  padding:5px;
 }
-
-.comments-section {
-  margin-top: 5px;
+.comments-section{
+  margin-top:5px
 }
-
-.comment-data {
+.comment-data{
   display: flex;
+  
 }
-
-.comment-data > p {
-  margin: 3px 3px 5px 1px;
+.comment-data > p{
+  margin:3px 3px 5px 1px;
   text-transform: capitalize;
 }
-
-/* POST DETAILS CSS */
-.ul-post {
+/*POST DETAILS CSS*/
+.ul-post{
   list-style-type: none;
   margin: 0 10px;
   padding: 10px 0;
 }
 
-.post-section-details {
-  padding: 0 10px 10px;
+.post-section-details{
+  padding: 0px 10px 10px ;
 }
-
 .post-data {
   display: flex;
   width: 100%;
   justify-content: space-between;
   text-transform: capitalize;
 }
-
-.post-interactions {
+.post-interactions{
   font-size: 12px;
   margin: 20px 0 0 0;
   text-transform: capitalize;
 }
-
-.comments-section-details {
+.comments-section-details{
   margin-top: 10px;
   padding: 0 10px;
   text-transform: capitalize;
 }
-
-.post-text-extended {
-  margin: 0 0 10px 0;
+.post-text-extended{
+  margin:0 0 10px 0;
 }
-
-.form-comments {
+.form-comments{
   width: 80%;
-  margin: auto;
+    margin: auto;
 }
-
-.form-comments > input[type='text'] {
+.form-comments > input[type='text']{
   width: 100%;
 }
 
-.form-comments > input[type='submit'] {
+.form-comments > input[type ='submit']{
   display: block;
   margin: 10px auto;
 }
-
-/* Post form */
-.post-form {
-  width: 90%;
+/*Post form*/
+.post-form{
+  width:90%;
   margin: 10px auto;
   box-sizing: border-box;
   height: 50vh;
 }
-
-.text-area-post {
+.text-area-post{
   width: 100%;
 }
-
-.post-form > input[type='text'] {
+.post-form > input[type='text']{
   width: 100%;
   padding: 5px;
   margin: 10px 0;
   box-sizing: border-box;
 }
-
-.post-form > textarea {
+.post-form > textarea{
   box-sizing: border-box;
-  padding: 10px;
-  height: 80%;
+    padding: 10px;
+    height: 80%;
 }
-
-.post-form > input[type='submit'] {
+.post-form >input[type='submit']{
   display: block;
   margin: 10px auto;
   width: 103px;
   padding: 8px;
 }
-
-li.comment-container {
+li.comment-container{
   border: none;
   padding: 20px 0 0 0;
+}
+/*sign in CSS*/
+
+.sign_in_form{
+  margin: auto;
+  width: 50%;
+}
+
+form.new_user{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.actions > input{
+  display: inline-block;
+  width:105%;
+}
+.field > input{
+  box-sizing: border-box;
+  width: 105%;
 }
