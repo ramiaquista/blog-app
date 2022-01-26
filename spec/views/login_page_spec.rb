@@ -33,7 +33,7 @@ RSpec.describe 'User Validation', type: :system do
     end
     it 'should redirect to the root page if the data is correct' do
       visit new_user_session_path
-      User.create(name: 'po',
+      User.create(name: 'mat',
                   photo: 'https://cdnwp-s3.benzinga.com/wp-content/uploads/2021/11/18141437/CurryApe.png',
                   bio: 'po bio', posts_counter: 0, email: 'po@gmail.com', password: '123456')
       sleep(1)
