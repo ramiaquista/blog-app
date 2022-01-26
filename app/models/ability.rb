@@ -6,8 +6,10 @@ class Ability
     user ||= User.new
     if user.role.nil?
       can :manage, Post, user_id: user.id
-    else
+      can :manage, Comment, user_id: user.id
+    else # shouldnt be elsif user.role == 'admin'
       can :manage, Post
+      can :manage, Comment
     end
     #
     # The first argument to `can` is the action you are giving the user
