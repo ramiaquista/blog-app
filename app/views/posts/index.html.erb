@@ -1,5 +1,8 @@
 <% if @posts.blank? %>
 <p>There are not any posts currently in the system for this user.</p>
+<li>
+  <a href=<%="#{new_user_post_path}"%>>Add new Post</a>
+</li>
 <% else %>
     <ul class="ul-user">
       <li>
