@@ -14,7 +14,7 @@ RSpec.describe 'post show action', type: :system do
       post_body = find('.post-text-extended')
       comment_body = find('.comment-body')
       expect(title_tag).to have_content("#{post.title} By #{user.name}")
-      expect(interactions_tag).to have_content("Comments: #{post.comments_counter}, Likes: #{post.likes_counter}")
+      expect(interactions_tag).to have_content("Comments: 4, Likes: #{post.likes_counter}")
       expect(post_body).to have_content(post.text)
       expect(comment_body).to have_content("#{user.name}: #{comment.text}")
       sleep(5)
