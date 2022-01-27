@@ -1,8 +1,14 @@
 class PostsController < ApplicationController
+  # GET /posts
   def index
     id = params[:user_id]
     @user = User.find(id)
     @posts = Post.includes(:author).where("user_id = #{id}").references(:user).order(id: :desc)
+    @all_posts = Post.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @all_posts }
+    end
   end
 
   def show
@@ -10,6 +16,10 @@ class PostsController < ApplicationController
     @post = Post.find(post_id)
     @user = User.find(@post.user_id)
     @comments = Comment.includes(:post).where("post_id = #{post_id}").references(:post)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @comments }
+    end
   end
 
   def new
