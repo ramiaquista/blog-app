@@ -1,7 +1,7 @@
     <ul class="ul-user">
       <li>
         <div class="user-img">
-          <img src="<%= @user.photo %>" alt="user_photo"/>
+          <img id="img" src="<%= @user.photo %>" alt="user_photo"/>
         </div>
         <div class="data">
           <p class="name"><%= @user.name %></p>
@@ -12,11 +12,11 @@
     <section>
       <div class="bio">
         <p class="bio-title">Bio</p>
-        <%= @user.bio %>
+        <p class="bio-text"><%= @user.bio %></p>
       </div>
       <ul class="ul-posts">
         <% @posts.each do |p| %>
-          <li class="post-user-section">
+          <li class="post-user-section" onclick="location.href='<%= user_post_path(id: p.id, user_id:@user.id) %>'">
             <p class="post-title"><%= p.title %></p>
             <p class="post-text"><%= p.text %></p>
             <div class="interactions">
@@ -27,4 +27,4 @@
         <% end %>
       </ul>
     </section>
-    <button class="btn-user-details">see all posts</button>   
+    <button class="btn-user-details" onclick="location.href='<%= user_posts_path(@user.id) %>'">see all posts</button>   

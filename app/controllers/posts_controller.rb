@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def index
     id = params[:user_id]
     @user = User.find(id)
-    @posts = Post.includes(:author).where("user_id = #{id}").references(:user).limit(2).order(id: :desc)
+    @posts = Post.includes(:author).where("user_id = #{id}").references(:user).order(id: :desc)
   end
 
   def show

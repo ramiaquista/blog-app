@@ -8,11 +8,15 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :delete_all
   belongs_to :author, class_name: 'User'
 
+  after_create :update_post_counter
+
   def update_post_counter
-    :author.update(posts_counter: Post.all)
+    user = User.find(user_id)
+    user.increment!(:posts_counter)
+    user.save
   end
 
   def most_recent_comments
-    Post.includes(:comments).limit(5).order(created_at: :desc)
+    Comment.where(post_id: id).order(created_at: :desc).limit(5)
   end
 end

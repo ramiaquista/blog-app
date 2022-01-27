@@ -1,49 +1,57 @@
+<ul class="ul-user">
+  <li>
+    <div class="user-img">
+      <img src="<%= @user.photo %>" alt="user_photo"/>
+    </div>
+    <div class="data">
+      <p class="name"><%= @user.name %></p>
+      <p class="number-posts">number of posts: <%= @user.posts_counter %></p>
+    </div>
+  </li>
+</ul>
+<div class="bio">
+  <p class="bio-title">Bio</p>
+  <%= @user.bio %>
+</div>
 <% if @posts.blank? %>
 <p>There are not any posts currently in the system for this user.</p>
 <li>
   <a href=<%="#{new_user_post_path}"%>>Add new Post</a>
 </li>
 <% else %>
-    <ul class="ul-user">
+  <section>
+    <ul class="ul-posts">
+      <% @user.recent_posts.each do |p| %>
+        <li class="post-section-index">
+          <div class="post-section">
+            <p class="post-title">
+              <%= link_to p.title, user_post_path(user_id: @user.id, id: p.id) %>
+            </p>
+            <p class="post-text"><%= p.text %></p>
+            <div class="interactions">
+              <p>comments: <%= p.comments_counter %>,</p>
+              <p>likes: <%= p.likes_counter %></p>
+            </div>
+          </div>
+          <% @comments = p.most_recent_comments %>
+          <% unless @comments.blank? %>
+            <div class="comments-section">
+              <% @comments.each do |c|%>
+                <div class="comment-data">
+                  <p><%= User.find(c.user_id).name %>:</p>
+                  <p><%= c.text %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
       <li>
-        <div class="user-img">
-          <img src="<%= @user.photo %>" alt="user_photo"/>
-        </div>
-        <div class="data">
-          <p class="name"><%= @user.name %></p>
-          <p class="number-posts">number of post: <%= @user.posts_counter %></p>
-        </div>
+        <a href=<%="#{new_user_post_path}"%>>Add new Post</a>
       </li>
     </ul>
-    <section>
-      <ul class="ul-posts">
-        <% @posts.each do |p| %>
-          <li class="post-section-index">
-            <div class="post-section">
-              <p class="post-title"><%= p.title %></p>
-              <p class="post-text"><%= p.text %></p>
-              <div class="interactions">
-                <p>comments: <%= p.comments_counter %>,</p>
-                <p>likes: <%= p.likes_counter %></p>
-              </div>
-            </div>
-            <% @comments = p.most_recent_comments %>
-            <% if @comments.blank? %>
-              <div class="comments-section">
-                <% @comments.each do |c|%>
-                  <div class="comment-data">
-                    <p><%= c.user_name(c.user_id)%>:</p>
-                    <p><%= c.text %></p>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
-          </li>
-        <% end %>
-        <li>
-          <a href=<%="#{new_user_post_path}"%>>Add new Post</a>
-        </li>
-      </ul>
-    </section>
+  </section>
+  <% if @posts.length > @user.recent_posts.length %>
     <button class="btn-user-details">pagination</button>
+  <% end %>
 <% end %>
