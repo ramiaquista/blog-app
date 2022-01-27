@@ -16,6 +16,10 @@ class PostsController < ApplicationController
     @post = Post.find(post_id)
     @user = User.find(@post.user_id)
     @comments = Comment.includes(:post).where("post_id = #{post_id}").references(:post)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @comments }
+    end
   end
 
   def new
