@@ -10,7 +10,7 @@ class PostsController < ApplicationController
       format.json { render json: @all_posts }
     end
   end
-
+# GET post/comments
   def show
     post_id = params[:id]
     @post = Post.find(post_id)
