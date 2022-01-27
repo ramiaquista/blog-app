@@ -21,10 +21,12 @@
 <% else %>
   <section>
     <ul class="ul-posts">
-      <% @posts.each do |p| %>
+      <% @user.recent_posts.each do |p| %>
         <li class="post-section-index">
           <div class="post-section">
-            <p class="post-title"><%= p.title %></p>
+            <p class="post-title">
+              <%= link_to p.title, user_post_path(user_id: @user.id, id: p.id) %>
+            </p>
             <p class="post-text"><%= p.text %></p>
             <div class="interactions">
               <p>comments: <%= p.comments_counter %>,</p>
@@ -49,5 +51,7 @@
       </li>
     </ul>
   </section>
-  <button class="btn-user-details">pagination</button>
+  <% if @posts.length > @user.recent_posts.length %>
+    <button class="btn-user-details">pagination</button>
+  <% end %>
 <% end %>

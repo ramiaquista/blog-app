@@ -63,7 +63,25 @@ RSpec.describe 'User post index page', type: :system do
   end
   
   it "should show a section for pagination if there are more posts than fit on the view" do
+    Post.create(title: 'This is the post title 2', text: 'Content post 2', author_id: @user.id, user_id: @user.id, 
+      comments_counter: 0, likes_counter: 0)
+    
+    Post.create(title: 'This is the post title 3', text: 'Content post 3', author_id: @user.id, user_id: @user.id, 
+      comments_counter: 0, likes_counter: 0)
+
+    Post.create(title: 'This is the post title 4', text: 'Content post 4', author_id: @user.id, user_id: @user.id, 
+      comments_counter: 0, likes_counter: 0)
+     
+    Post.create(title: 'This is the post title 5', text: 'Content post 5', author_id: @user.id, user_id: @user.id, 
+      comments_counter: 0, likes_counter: 0)
+    
     visit user_posts_path(@user.id)
-    expect(page).to have_content('Likes: 1')
+    expect(page).to have_content('Pagination')
+  end
+
+  it "should redirects to a post's show page when a post is clicked" do
+    visit user_posts_path(@user.id)
+    click_on('This is the post title')
+    expect(page).to have_current_path(user_post_path(user_id: @user.id, id: @post.id))
   end
 end
