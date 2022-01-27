@@ -6,11 +6,11 @@
       <p>Post Added Successfully!</p>
     <% end %>
     <% @users.each do |u| %>
-    <li>
+    <li class="user-container">
       <div class="user-img">
         <img src="<%= u.photo %>" alt="user_photo"/>
       </div>
-      <div class="data">
+      <div class="data" onclick="location.href='<%= user_path(u.id) %>'">
         <p class="name"><%= u.name %></p>
         <p class="number-posts">number of post: <%= u.posts_counter %></p>
       </div>
